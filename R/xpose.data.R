@@ -128,6 +128,7 @@ xpose.data <-function(runno,
                            ##sim.suffix="sim",
                            quiet=quiet,
                            nm7=nm7,
+                           directory=directory,
                            ...)
       if(!is.null(phi.data)){
           xpobj@Data.firstonly <- phi.data

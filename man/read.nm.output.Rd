@@ -50,6 +50,7 @@ read.phi(phi.file=NULL,
          phi.suffix=".phi",
          quiet=TRUE,
          nm7=TRUE,
+	 directory="",
          ...)
 
 
@@ -67,7 +68,8 @@ calc.npar(object)
   \item{phi.suffix}{suffix of a NONMEM .phi file}
   \item{quiet}{Quiet or not}
   \item{nm7}{NM7 or not}
-    \item{\dots}{
+\item{directory}{directory in which the NONMEM output files is}
+  \item{\dots}{
     Items passed to functions within this function.
   }
   \item{listfile}{A NONMEM output file.}

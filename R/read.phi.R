@@ -30,6 +30,7 @@ read.phi <-
              ##sim.suffix="sim",
              quiet=TRUE,
              nm7=TRUE,
+             directory="",
              ...)
 {
 
@@ -44,7 +45,7 @@ read.phi <-
         }
 
         ## create file name
-        filename <- paste(phi.prefix,runno,phi.suffix,sep="")
+        filename <- paste(directory,phi.prefix,runno,phi.suffix,sep="")
     } else {
         filename <- phi.file
     }
