@@ -22,12 +22,6 @@
 # along with this program.  A copy can be cound in the R installation
 # directory under \share\licenses. If not, see http://www.gnu.org/licenses/.
 
-.First.lib <- function(libname, pkgname) {
-   require(Hmisc, warn.conflicts = FALSE, quietly = TRUE)
-   require(gam, warn.conflicts = FALSE, quietly = TRUE)
-   #createXposeClasses()
-}
-
 .onLoad <- function(libname, pkgname) {
    createXposeClasses()
 }

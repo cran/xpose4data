@@ -62,7 +62,7 @@
   }
   
   if (classic==TRUE) {
-    assign(paste("xpdb", object@Runno, sep = ""), object, immediate=T, env = .GlobalEnv)
+    assign(paste("xpdb", object@Runno, sep = ""), object, immediate=T, envir = .GlobalEnv)
     assign(pos = 1, ".cur.db", eval(as.name(paste("xpdb", object@Runno, sep = ""))))
     return(cat(""))
   } else {

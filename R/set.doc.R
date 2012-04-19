@@ -33,7 +33,7 @@ function(object, classic = FALSE)
 	dat@Doc <- doc
 	
         if (classic==TRUE) {
-          assign(paste("xpdb", object@Runno, sep = ""), dat, immediate=T, env = .GlobalEnv)
+          assign(paste("xpdb", object@Runno, sep = ""), dat, immediate=T, envir = .GlobalEnv)
           assign(pos = 1, ".cur.db", eval(as.name(paste("xpdb", object@Runno, sep = ""))))
           return(cat(""))
         } else {

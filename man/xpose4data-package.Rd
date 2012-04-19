@@ -88,8 +88,6 @@
   use then you can browse the four different libraries that make up the
   Xpose 4 distribution.  These libraries are:
   
-  
-  
   \code{\link[xpose4data:xpose4data-package]{xpose4data}} - 
   Functions to to read NONMEM table files and create the Xpose data
   structure
@@ -114,12 +112,7 @@
   which xpose database to use (i.e. \code{xpdb} after running the
   command \code{xpdb <- xpose.data(run.number)}).
   
-  functions and their help entries may be found in the \\chtml, \\html and
-  \\latex directories of the five Xpose packages, found in the
-  \\\[R-HOME\]\\library folder. Formats are Microsoft compiled HTML,
-  CHTML, PDF and
-  LaTeX, respectively.
-  
+   
 }
 \author{E. Niclas Jonsson, Mats Karlsson, Justin Wilkins and Andrew Hooker}
 \keyword{methods}

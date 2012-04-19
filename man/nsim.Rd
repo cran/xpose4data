@@ -38,8 +38,6 @@ nsim(object) <- value
   \item{value}{A value.}
 }
 
-\value{
-}
 
 \author{Niclas Jonsson}
 

@@ -33,24 +33,24 @@
   These functions transform existing Xpose 4 data columns, adding new columns.
 }
 \usage{
-object <- add.absval(object, 
-            listall = TRUE, 
-            classic = FALSE) 
+add.absval(object, 
+           listall = TRUE, 
+           classic = FALSE) 
 
-object <- add.dichot(object, 
-            listall = TRUE, 
-            classic = FALSE)
+add.dichot(object, 
+           listall = TRUE, 
+           classic = FALSE)
         
-object <- add.exp(object, 
-            listall = TRUE, 
-            classic = FALSE)
+add.exp(object, 
+        listall = TRUE, 
+        classic = FALSE)
         
-object <- add.log(object, 
-            listall = TRUE, 
-            classic = FALSE)    
+add.log(object, 
+        listall = TRUE, 
+        classic = FALSE)    
         
-object <- add.tad(object,  
-            classic = FALSE)
+add.tad(object,  
+        classic = FALSE)
 
 }
 \arguments{

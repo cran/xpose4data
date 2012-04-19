@@ -30,7 +30,7 @@
   a file.
 }
 \usage{
-object <- import.variable.definitions(object, classic = FALSE)
+import.variable.definitions(object, classic = FALSE)
 }
 \arguments{
   \item{object}{An \code{xpose.data} object. }

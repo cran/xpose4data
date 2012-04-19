@@ -31,10 +31,10 @@
   a file.
 }
 \usage{
-object <- import.graph.par(object, classic = FALSE)
+import.graph.par(object, classic = FALSE)
 
-object <- xpose.read(object,
-          file = "xpose.ini")
+xpose.read(object,
+           file = "xpose.ini")
 
 }
 \arguments{
@@ -42,6 +42,7 @@ object <- xpose.read(object,
   \item{classic}{A logical operator specifying whether the function should 
                  assume the classic menu system. This is an internal option 
                  and need never be called from the command line.}
+  \item{file}{The file where default graphical settings are located.}
 }
 \details{
   This function imports graphics settings (contents of object@Prefs@Graph.prefs)

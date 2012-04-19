@@ -2,9 +2,9 @@
 # An R-based population pharmacokinetic/
 # pharmacodynamic model building aid for NONMEM.
 # Copyright (C) 1998-2004 E. Niclas Jonsson and Mats Karlsson.
-# Copyright (C) 2005-2008 Andrew C. Hooker, Justin J. Wilkins,
+# Copyright (C) 2005-2008 Andrew C. Hooker, Justin J. Wilkins, 
 # Mats O. Karlsson and E. Niclas Jonsson.
-# Copyright (C) 2009-2010 Andrew C. Hooker, Mats O. Karlsson and
+# Copyright (C) 2009-2010 Andrew C. Hooker, Mats O. Karlsson and 
 # E. Niclas Jonsson.
 
 # This file is a part of Xpose 4.
@@ -64,8 +64,7 @@
   seomegas <- x$seomegas
   sesigmas <- x$sesigmas
 
-  #browser()
-
+  
   if(!any(is.null(term)))
     seenterm <- 1
   if(!any(is.null(ofv)))
@@ -104,7 +103,7 @@
     parnam        <- 0
     parval        <- 0
     parnam[1:nth] <- paste("TH",1:nth,sep="")
-    parval[1:nth] <- thetas
+    parval[1:nth] <- format.default(thetas,digits=2)
   }
 
   ## If we have SE for the thetas
@@ -192,7 +191,7 @@
     for(i in 1:nseomega) {
       ## Select the non-zero omegas
       sel <- omega[[i]] != 0
-
+      
       if(nseomega == 1) sel <- T
       if(i == 1) sel <- T
 
@@ -206,11 +205,15 @@
         if(omega[[i]][sel] == 0) { ## If first omega is fixed to 0
           separval[n]  <- ""
         } else {
-          if(seomegas[[i]][sel] == 0){
+          if(is.na(seomegas[[i]][sel])){
             separval[n]  <- ""
           } else {
-            separval[n]  <-
-              format.default(seomegas[[i]][sel]/abs(omega[[i]][sel]),digits=2)
+            if(seomegas[[i]][sel] == 0){
+              separval[n]  <- ""
+            } else {
+              separval[n]  <-
+                format.default(seomegas[[i]][sel]/abs(omega[[i]][sel]),digits=2)
+            }
           }
         }
 
@@ -218,11 +221,15 @@
         ## There are off-diagonals
         n <- n+1
 	separnam[n]  <- paste("RSE OM",i,":",i,sep="")
-        if(seomegas[[i]][i] == 0){
+        if(is.na(seomegas[[i]][i])){
           separval[n]  <- ""
         } else {
-          separval[n]  <-
-            format.default(seomegas[[i]][i]/abs(omega[[i]][i]),digits=2)
+          if(seomegas[[i]][i] == 0){
+            separval[n]  <- ""
+          } else {
+            separval[n]  <-
+              format.default(seomegas[[i]][i]/abs(omega[[i]][i]),digits=2)
+          }
         }
 
         ## Loop over the off-diagonals
@@ -232,18 +239,22 @@
 	    n <- n +1
 	    separnam[n]  <-
 	      paste("RSE OM",i,":",j,sep="")
-            if(seomegas[[i]][j] == 0){
+            if(is.na(seomegas[[i]][j])){
               separval[n]  <- ""
             } else {
-              separval[n]  <-
-                format.default(seomegas[[i]][j]/abs(omega[[i]][j]),digits=2)
+              if(seomegas[[i]][j] == 0){
+                separval[n]  <- ""
+              } else {
+                separval[n]  <-
+                  format.default(seomegas[[i]][j]/abs(omega[[i]][j]),digits=2)
+              }
             }
 	  }
 	}
       }
     }
   }
-
+  
   ## capture the length of the parameter vector before sigma added
   th.om.par.length <- length(parnam)
 
@@ -306,20 +317,31 @@
           ## If first sigma is fixed to 0
           separval[n]<- ""
         } else {
-          separval[n]<-
-            format.default(sesigmas[[i]][sel]/abs(sigma[[i]][sel]),digits=2)
+          if(is.na(sesigmas[[i]][sel])){
+            separval[n]  <- ""
+          } else {
+            if(sesigmas[[i]][sel] == 0){
+              separval[n]  <- ""
+            } else {
+              separval[n]<-
+                format.default(sesigmas[[i]][sel]/abs(sigma[[i]][sel]),digits=2)
+            }
+          }
         }
       } else {
         ## There are off-diagonals
         n <- n+1
         separnam[n]<- paste("RSE SI",i,":",i,sep="")
-        if(seomegas[[i]][sel] == 0) {
+        if(is.na(sesigmas[[i]][sel])){
           separval[n]  <- ""
         } else {
-          separval[n]<-
-            format.default(sesigmas[[i]][i]/abs(sigma[[i]][i]),digits=2)
+          if(seomegas[[i]][sel] == 0) {
+            separval[n]  <- ""
+          } else {
+            separval[n]<-
+              format.default(sesigmas[[i]][i]/abs(sigma[[i]][i]),digits=2)
+          }
         }
-
         ## Loop over the off-diagonals
 	for(j in 1:(length(sesigmas[[i]])-1)) {
 
@@ -328,11 +350,15 @@
 	    n <- n+1
 	    separnam[n] <-
 	      paste("RSE SI",i,":",j,sep="")
-            if(sigma[[i]][j] == 0){
+            if(is.na(sesigmas[[i]][j])){
               separval[n]  <- ""
             } else {
-              separval[n] <-
-                format.default(sesigmas[[i]][j]/abs(sigma[[i]][j]),digits=2)
+              if(sigma[[i]][j] == 0){
+                separval[n]  <- ""
+              } else {
+                separval[n] <-
+                  format.default(sesigmas[[i]][j]/abs(sigma[[i]][j]),digits=2)
+              }
             }
 	  }
 	}
@@ -363,6 +389,5 @@
   #detach(npar.list)
 
   return(ret.list)
-
 
 }

@@ -2,9 +2,9 @@
 % An R-based population pharmacokinetic/
 % pharmacodynamic model building aid for NONMEM.
 % Copyright (C) 1998-2004 E. Niclas Jonsson and Mats Karlsson.
-% Copyright (C) 2005-2008 Andrew C. Hooker, Justin J. Wilkins,
+% Copyright (C) 2005-2008 Andrew C. Hooker, Justin J. Wilkins, 
 % Mats O. Karlsson and E. Niclas Jonsson.
-% Copyright (C) 2009-2010 Andrew C. Hooker, Mats O. Karlsson and
+% Copyright (C) 2009-2010 Andrew C. Hooker, Mats O. Karlsson and 
 % E. Niclas Jonsson.
 
 % This file is a part of Xpose 4.
@@ -27,16 +27,12 @@
 \alias{reset.variables}
 \title{Resets Xpose variable definitions to factory settings}
 \description{
-  These functions reset Xpose's graphics parameters and variable definitions
+  Function to reset Xpose's graphics parameters definitions
   to the default.
 }
 \usage{
-object <- reset.graph.par(object,
-             classic = FALSE)
-
-object <- reset.variables(object,
-             classic = FALSE)
-
+reset.graph.par(object,
+                classic = FALSE)
 }
 \arguments{
   \item{object}{An \code{xpose.data} object. }
@@ -45,10 +41,9 @@ object <- reset.variables(object,
                  and need never be called from the command line.}
 }
 \details{
-  These functions are used to reset Xpose's graphic settings and variable
-  definitions to their default values. Graphical settings are read from
-  the file 'xpose.fac' in the root of the 'xpose4' package, whereas
-  variable settings are hard-coded.
+  This functions is used to reset Xpose's graphic settings definitions
+  to their default values. Graphical settings are read from 
+  the file 'xpose.ini' in the root of the 'xpose4' package.
 }
 \value{
   An \code{\link{xpose.data}} object (classic == FALSE) or null (classic == TRUE).
@@ -74,9 +69,6 @@ xpdb5 <- reset.graph.par(xpdb5)
 
 ## Change WRES definition
 xpdb5 <- change.wres(xpdb5)
-
-## Reset to default values
-xpdb5 <- reset.variables(xpdb5)
 }
 }
 \keyword{methods}

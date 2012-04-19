@@ -140,12 +140,14 @@
 \code{\link{read.nm.tables}},
 \code{\link[xpose4generic]{compute.cwres}}}
 \examples{
-\dontrun{
+
 ## We expect to find the required NONMEM run and table files for run
-## 5 in the current working directory, using default Xpose format
+## 1 in the current working directory, using default Xpose format
+## Here we create files from an example NONMEM run
+simprazExample(overwrite=FALSE)
+xpdb <- xpose.data(1) 
 
-xpdb5 <- xpose.data(5) 
-
+\dontrun{
 ## We expect to find the required NONMEM run and table files for run
 ## 5 in the current working directory, and that the table files have
 ## a suffix of '.dat', e.g. sdtab5.dat

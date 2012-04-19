@@ -32,11 +32,13 @@ read.lst <- function(filename) {
   ## Match the VERSION string
   versionline <- grep("1NONLINEAR", listfile)
 
-  if(is.null(version$language) &&
-     platform() == "WIN386" &&
-     version$major <6) {
-    versionVIpat  <- "*VERSION*VI\\s*"        #Not tested
-    versionVIIpat <- "*VERSION*7.*"       #Not tested
+  if(is.null(version$language)){
+    cat("need to use R for this version of Xpose")
+    ##&&
+    ##  platform() == "WIN386" &&
+    ##  version$major <6) {
+    ## versionVIpat  <- "*VERSION*VI\\s*"        #Not tested
+    ## versionVIIpat <- "*VERSION*7.*"       #Not tested
   } else {
     versionVIpat  <- "VERSION VI\\s"
     versionVIIpat <- "VERSION 7."

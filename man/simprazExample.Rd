@@ -21,46 +21,35 @@
 % You should have received a copy of the GNU Lesser General Public License
 % along with this program.  A copy can be cound in the R installation
 % directory under \share\licenses. If not, see http://www.gnu.org/licenses/.
-
-\name{change.xlabel}
-\alias{change.xlabel}
-\title{Changes the label of an Xpose data item}
+\name{simprazExample}
+\alias{simprazExample}
+\title{
+Function to create files for the simulated Prazosin example in Xpose
+}
 \description{
-  This function allows the labels of data items in the Xpose database to be
-  changed.
+Creates NONMEM data, model and output files for a model of Prazosin using
+simulted data.   
 }
 \usage{
-change.xlabel(object,
-              listall = TRUE,
-              classic = FALSE)
+simprazExample(overwrite=FALSE)
 }
 \arguments{
-  \item{object}{An \code{xpose.data} object. }
-  \item{listall}{A logical operator specifying whether the items in the database 
-                 should be listed. }
-  \item{classic}{A logical operator specifying whether the function should 
-                 assume the classic menu system. This is an internal option 
-                 and need never be called from the command line.}
+  \item{overwrite}{Logical. Should the function overwrite files with the
+  same names already in the current working directory?}
 }
 \details{
-  This function facilitates the changing of data item labels in the object@Prefs@Labels
-  slot. 
+  Creates files in the current working directory named:
+  run1.ext
+  run1.lst
+  run1.mod
+  simpraz.dta
+  xptab1
 }
-\value{
-  An \code{\link{xpose.data}} object.
-}
-\author{Justin Wilkins}
-\seealso{
-\code{\link[xpose4data]{Data}},\code{\link[xpose4data]{SData}},\code{\link{xpose.data}}
+\author{
+Niclas Jonsson and Andrew Hooker
 }
 \examples{
-\dontrun{
-## xpdb5 is an Xpose data object
-## We expect to find the required NONMEM run and table files for run
-## 5 in the current working directory
-xpdb5 <- xpose.data(5)
-
-xpdb5 <- change.xlabel(xpdb5)
-}
+simprazExample()
 }
 \keyword{methods}
+

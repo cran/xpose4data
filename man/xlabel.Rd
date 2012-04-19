@@ -32,22 +32,23 @@
 \usage{
 xlabel(x, object)
 
-xlabel(object) <- c(x, newlabel)
+xlabel(object) <- value
 }
 \arguments{
   \item{x}{Name of the variable to assign a label to.}
   \item{object}{An \code{xpose.data} object. }
-  \item{newlabel}{A new label for the variable in the column named \code{x}}
+  \item{value}{A two element vector of which the first element is the
+    name of the variable and the second the label} 
 }
 \details{
   \code{x} should be a
-    string exactly matching the name of a column in the data.frame in
-    the Data slot of an xpose.data object. The name of columns defined
-    through xpose variable definitions (see \code{\link{xpose.data}})
-    can be extracted using the \code{xvardef} function and to be used in the
-    \code{xlabel} function,
-    e.g. \code{xlabel(xvardef("dv",object),object)}, which would give the
-    label for the \code{dv} variable.
+  string exactly matching the name of a column in the data.frame in
+  the Data slot of an xpose.data object. The name of columns defined
+  through xpose variable definitions (see \code{\link{xpose.data}})
+  can be extracted using the \code{xvardef} function and to be used in the
+  \code{xlabel} function,
+  e.g. \code{xlabel(xvardef("dv",object),object)}, which would give the
+  label for the \code{dv} variable.
 }
 \value{
   The label of the specified column.

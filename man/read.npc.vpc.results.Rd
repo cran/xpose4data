@@ -63,15 +63,10 @@ returned from the function.
   \item{result.tables }{The results tables from the results file.  this
   is a list.}
 }
-\references{}
 \author{Andrew Hooker}
-\note{
-}
 \seealso{
   \code{\link[xpose4specific]{xpose.VPC}}
   \code{\link[xpose4specific]{npc.coverage}}
-}
-\examples{
 }
 \keyword{methods}
 

@@ -36,8 +36,8 @@ function(object, listall=TRUE, classic=FALSE)
         
   if(ans == "NULL" || ans == "null") {
 	  dat@Prefs@Xvardef$idlab <- NULL
-	  assign("object", dat, immediate=T, env = .GlobalEnv)
-	  assign(paste("xpdb", object@Runno, sep = ""), dat, immediate=T, env = .GlobalEnv)
+	  assign("object", dat, immediate=T, envir = .GlobalEnv)
+	  assign(paste("xpdb", object@Runno, sep = ""), dat, immediate=T, envir = .GlobalEnv)
 	  invisible()
 	  return()
 	  
@@ -56,7 +56,7 @@ function(object, listall=TRUE, classic=FALSE)
 		    dat@Prefs@Labels[ans] <- labl
 		    
         if (classic==TRUE) {
-          assign(paste("xpdb", object@Runno, sep = ""), dat, immediate=T, env = .GlobalEnv)
+          assign(paste("xpdb", object@Runno, sep = ""), dat, immediate=T, envir = .GlobalEnv)
           assign(pos = 1, ".cur.db", eval(as.name(paste("xpdb", object@Runno, sep = ""))))
           return(cat(""))
         } else {

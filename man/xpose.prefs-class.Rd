@@ -149,7 +149,5 @@ No methods defined with class "xpose.prefs" in the signature.
   \code{\link[xpose4data]{xpose.data-class}},
   \code{\link[xpose4specific]{xpose.gam}}
 }
-\examples{
-}
 \keyword{classes}
 

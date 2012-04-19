@@ -62,8 +62,8 @@ SData <- function(object,
 "SData<-" <- function(object,value) {
 
   Snro <- dim(value)[1]
-  Dnro <- dim(Data(object,incl=TRUE))[1]
-  
+  Dnro <- dim(Data(object,inclZeroWRES=TRUE))[1]
+
   if(Dnro == 0) return("Data should be set before SData!")
   
   ## Check to see if the length of the SData is an even multiplier
@@ -90,7 +90,7 @@ SData <- function(object,
     ## column in SData with a column that is zero where the WRES in
     ## Data is zero and 1 otherwise.
     if(!any(value$WRES !=0)) {
-      Data.wres  <- Data(object,incl=TRUE)[,"WRES"]
+      Data.wres  <- Data(object,inclZeroWRES=TRUE)[,"WRES"]
       SData.wres <- rep(Data.wres,Snro/Dnro)
       SData.wres <- ifelse(SData.wres==0,0,1)
       value$WRES <- SData.wres

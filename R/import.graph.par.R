@@ -47,8 +47,8 @@
   }
   
   if (classic==TRUE) {
-    assign(paste("xpdb", xpobj@Runno, sep = ""), xpobj, immediate=T, env = .GlobalEnv)
-    assign(pos = 1, ".cur.db", eval(as.name(paste("xpdb", xpboj@Runno, sep = ""))))
+    assign(paste("xpdb", xpobj@Runno, sep = ""), xpobj, immediate=T, envir = .GlobalEnv)
+    assign(pos = 1, ".cur.db", eval(as.name(paste("xpdb", xpobj@Runno, sep = ""))))
     return(cat(""))
   } else {
     return(xpobj)

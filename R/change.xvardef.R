@@ -2,9 +2,9 @@
 # An R-based population pharmacokinetic/
 # pharmacodynamic model building aid for NONMEM.
 # Copyright (C) 1998-2004 E. Niclas Jonsson and Mats Karlsson.
-# Copyright (C) 2005-2008 Andrew C. Hooker, Justin J. Wilkins,
+# Copyright (C) 2005-2008 Andrew C. Hooker, Justin J. Wilkins, 
 # Mats O. Karlsson and E. Niclas Jonsson.
-# Copyright (C) 2009-2010 Andrew C. Hooker, Mats O. Karlsson and
+# Copyright (C) 2009-2010 Andrew C. Hooker, Mats O. Karlsson and 
 # E. Niclas Jonsson.
 
 # This file is a part of Xpose 4.
@@ -113,7 +113,7 @@
     }
 
     if (classic==TRUE) {
-      assign(paste("xpdb", object@Runno, sep = ""), object, immediate=T, env = .GlobalEnv)
+      assign(paste("xpdb", object@Runno, sep = ""), object, immediate=T, envir = .GlobalEnv)
       assign(pos = 1, ".cur.db", eval(as.name(paste("xpdb", object@Runno, sep = ""))))
       return(cat(""))
     } else {

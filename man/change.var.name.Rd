@@ -30,7 +30,7 @@
   changed.
 }
 \usage{
-object <- change.var.name(object, 
+change.var.name(object, 
                 classic = FALSE)
 }
 \arguments{

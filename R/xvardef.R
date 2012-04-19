@@ -27,11 +27,11 @@ xvardef <- function(x,object) {
   return(object@Prefs@Xvardef[[x]])
 }
 
-"xvardef<-" <- function(x,value) {
+"xvardef<-" <- function(object,value) {
 
   ## value is a two element vector of which the first element is the
   ## name of the variable and the second the label
-  x@Prefs@Xvardef[value[1]] <- value[2]
+  object@Prefs@Xvardef[value[1]] <- value[2]
 
-  return(x)
+  return(object)
 }

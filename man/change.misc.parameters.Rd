@@ -40,29 +40,32 @@
   indicating missing data values. 
 }
 \usage{                                   
-object <- change.cat.levels(object, 
-                            classic = FALSE,
-                            cat.limit=NULL,
-                            ...)
+change.cat.levels(object, 
+                  classic = FALSE,
+                  cat.limit=NULL,
+                  ...)
+
 change.cat.levels(object, 
                   classic = FALSE,
                   ...) <- value 
                                       
-object <- change.dv.cat.levels(object, 
-                               classic = FALSE,
-                               dv.cat.limit=NULL,
-                               ...) 
+change.dv.cat.levels(object, 
+                     classic = FALSE,
+                     dv.cat.limit=NULL,
+                     ...) 
+
 change.dv.cat.levels(object, 
                      classic = FALSE,
                      ...) <- value 
 
-object <- change.cat.cont(object,
-                          listall=TRUE,
-                          classic=FALSE,
-                          to.cat.vec=NULL,
-                          to.cont.vec=NULL,
-                          change.type.vec=NULL,
-                          ...)
+change.cat.cont(object,
+                listall=TRUE,
+                classic=FALSE,
+                to.cat.vec=NULL,
+                to.cont.vec=NULL,
+                change.type.vec=NULL,
+                ...)
+
 change.cat.cont(object,
                 listall=TRUE,
                 classic=FALSE,
@@ -71,14 +74,14 @@ change.cat.cont(object,
                 ...) <- value
   
 
-object <- change.miss(object,  
-              classic = FALSE)
+change.miss(object,  
+            classic = FALSE)
               
-object <- change.subset(object, 
+change.subset(object, 
               classic = FALSE) 
           
-object <- set.doc(object, 
-              classic = FALSE)
+set.doc(object, 
+        classic = FALSE)
           
 get.doc(object,
     classic = FALSE)
@@ -91,6 +94,9 @@ get.doc(object,
     and need never be called from the command line.}
   \item{dv.cat.limit }{The limit for which we treat DV as categorical.
     If there are \code{dv.cat.limit} or less unique dv values then dv is
+    treated as categorical.}
+  \item{cat.limit }{The limit for which we treat a list of values  as categorical.
+    If there are \code{cat.limit} or less unique values then the list is
     treated as categorical.}
   \item{listall}{A logical operator specifying whether the items in the
     database should be listed. }

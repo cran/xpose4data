@@ -37,32 +37,32 @@
   These functions allow customization of Xpose's graphics settings.
 }
 \usage{                                   
-object <- change.ab.graph.par(object, 
-                classic = FALSE) 
+change.ab.graph.par(object, 
+                    classic = FALSE) 
                 
-object <- change.bw.graph.par(object, 
-                classic = FALSE)
+change.bw.graph.par(object, 
+                    classic = FALSE)
                 
-object <- change.cond.graph.par(object, 
-                classic = FALSE)
+change.cond.graph.par(object, 
+                      classic = FALSE)
                 
-object <- change.dil.graph.par(object, 
-                classic = FALSE)
+change.dil.graph.par(object, 
+                     classic = FALSE)
                 
-object <- change.label.par(object,
-                classic = FALSE)
+change.label.par(object,
+                 classic = FALSE)
                                       
-object <- change.lm.graph.par(object, 
-                classic = FALSE) 
+change.lm.graph.par(object, 
+                    classic = FALSE) 
                 
-object <- change.misc.graph.par(object, 
-                classic = FALSE) 
+change.misc.graph.par(object, 
+                      classic = FALSE) 
                 
-object <- change.pi.graph.par(object, 
-                classic = FALSE)
+change.pi.graph.par(object, 
+                    classic = FALSE)
 
-object <- change.smooth.graph.par(object,  
-                classic = FALSE)     
+change.smooth.graph.par(object,  
+                        classic = FALSE)     
 }
 \arguments{
   \item{object}{An \code{xpose.data} object. }
@@ -96,7 +96,7 @@ object <- change.smooth.graph.par(object,
          \code{\link{par}},\code{\link{import.graph.par}},\code{\link[lattice]{panel.abline}},
          \code{\link[lattice]{panel.lmline}},\code{\link{lm}},\code{\link[lattice]{panel.loess}},
          \code{\link{loess.smooth}},\code{\link{loess}},\code{\link[lattice]{panel.bwplot}},
-         \code{\link[lattice]{shingle}},\code{\link{reorder.factor}}
+         \code{\link[lattice]{shingle}},\code{reorder.factor}
 }
 \examples{
 \dontrun{

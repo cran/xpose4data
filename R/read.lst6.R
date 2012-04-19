@@ -61,10 +61,12 @@ read.lst6 <- function(filename) {
 
 
   ## Find ofv
-  if(is.null(version$language) &&
-     platform() == "WIN386" &&
-     version$major <6) {
-    minvalpat <- "*MINIMUM*VALUE*"
+  if(is.null(version$language)){
+    cat("need to use R for this version of Xpose")
+    ##&&
+    ## platform() == "WIN386" &&
+    ## version$major <6) {
+    ##minvalpat <- "*MINIMUM*VALUE*"
   } else {
     minvalpat <- "MINIMUM VALUE"
   }
@@ -74,21 +76,23 @@ read.lst6 <- function(filename) {
   
 
   ## Find parameter estimates
-  if(is.null(version$language) &&
-     platform() == "WIN386" &&
-     version$major < 6) {
-    finalparpat <- "*FINAL*PARAMETER*"
-    sepat <- "*STANDARD*ERROR*OF"
-    tmatpat <- "*T MATRIX*"
-    thvecpat <- "*THETA*"
-    omegapat <- "*OMEGA*"
-    sigmapat <- "*SIGMA*"
-    pluspat <- "*+*"
-    etpat <- "*ET*"
-    eppat <- "*EP*"
-    covmatpat <- "*COVARIANCE*MATRIX*OF*ESTIMATE*"
-    tablepat <- "*TABLES*OF*DATA*"
-    notepat   <- "*1 Note:*"
+  if(is.null(version$language)) {
+    cat("need to use R for this version of Xpose")
+    ## &&
+    ##  platform() == "WIN386" &&
+    ##  version$major < 6) {
+    ## finalparpat <- "*FINAL*PARAMETER*"
+    ## sepat <- "*STANDARD*ERROR*OF"
+    ## tmatpat <- "*T MATRIX*"
+    ## thvecpat <- "*THETA*"
+    ## omegapat <- "*OMEGA*"
+    ## sigmapat <- "*SIGMA*"
+    ## pluspat <- "*+*"
+    ## etpat <- "*ET*"
+    ## eppat <- "*EP*"
+    ## covmatpat <- "*COVARIANCE*MATRIX*OF*ESTIMATE*"
+    ## tablepat <- "*TABLES*OF*DATA*"
+    ## notepat   <- "*1 Note:*"
   } else {
     finalparpat <- "FINAL PARAMETER"
     sepat <- "STANDARD ERROR OF"
@@ -254,8 +258,8 @@ read.lst6 <- function(filename) {
     seomegas <- seomegas[sapply(seomegas, nchar) != 0]
     seomega <- list()
     for(i in 1:length(seomegas)) {
-      seomega[[i]] <- sapply(string2num(seomegas[i]), na2zero
-                             )
+      ##seomega[[i]] <- sapply(string2num(seomegas[i]), na2zero)
+      seomega[[i]] <- string2num(seomegas[i])
     }
     seomega <- fix.wrapped.lines(seomega)
   

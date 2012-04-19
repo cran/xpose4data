@@ -32,8 +32,9 @@
   if(!any(is.null(object$thetas)||is.null(object$thetas))) nth <- length(object$thetas)
 
   ## SE of the thetas
-  if(!any(is.null(object$sethetas)||is.na(object$sethetas))) {
-    nseth <- length(object$sethetas)
+  #if(!any(is.null(object$sethetas)||is.na(object$sethetas))) {
+  if(!any(is.null(object$sethetas))){
+    nseth <- length(object$sethetas[!is.na(object$sethetas)])
   }
   else {
     nseth <- 0
@@ -53,8 +54,21 @@
     }
   }
   ## SE of the omegas
-  if(!any(is.null(object$seomegas)||is.na(object$seomegas))) {
-    nseom <- nom
+  #if(!any(is.null(object$seomegas)||is.na(object$seomegas))) {
+  if(!any(is.null(object$seomegas))) {
+    nseom <- 0
+    for(i in 1:length(object$seomegas)) {
+      ## This only gives back the number of non-zero elements.
+      ## Handling of initial zeros is done in plotsum2
+      sel <- object$seomegas[[i]] != 0
+      sel2 <- !is.na(object$seomegas[[i]])
+      sel3 <- sel & sel2
+      #if(!any(sel==TRUE)){
+      #  nom <- nom + 1
+      #}
+      ##nom <- length(omega[[i]]) + nom
+      nseom <- length(object$seomegas[[i]][sel3]) + nseom
+    }
   }
   else {
     nseom <- 0
@@ -68,8 +82,21 @@
     }
   }
   ## SE of the sigmas
-  if(!any(is.null(object$sesigmas)||is.na(object$sesigmas))) {
-    nsesi <- nsi
+  #if(!any(is.null(object$sesigmas)||is.na(object$sesigmas))) {
+  if(!any(is.null(object$sesigmas))) {
+    nsesi <- 0
+    for(i in 1:length(object$sesigmas)) {
+      ## This only gives back the number of non-zero elements.
+      ## Handling of initial zeros is done in plotsum2
+      sel <- object$sesigmas[[i]] != 0
+      sel2 <- !is.na(object$sesigmas[[i]])
+      sel3 <- sel & sel2
+      #if(!any(sel==TRUE)){
+      #  nom <- nom + 1
+      #}
+      ##nom <- length(omega[[i]]) + nom
+      nsesi <- length(object$sesigmas[[i]][sel3]) + nsesi
+    }
   }
   else {
     nsesi <- 0

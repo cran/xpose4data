@@ -32,13 +32,15 @@
 \usage{
 xvardef(x, object)
 
-xvardef(object) <- c(x,newdef)
+xvardef(object) <- value
 }
 
 \arguments{
   \item{x}{The name of an xpose variable (see below).}
   \item{object}{An \code{xpose.data} object. }
-  \item{newdef}{The new variable to get the xpose variable definition.}
+  \item{value}{A two element vector of which the first element is the
+    name of the variable and the second the column name in the Data slot
+    of the object.}
 }
 \details{
   The Xpose variable definitions are used to map particular variable
@@ -50,10 +52,6 @@ xvardef(object) <- c(x,newdef)
   random effects parameters=etas, typical value parameters). The default
   values of these can be found in the \code{createXposeClasses}
   function.
-
-  \code{newdef} should be the of one of the columns in the data.frame of
-  the Data slot. Note: Presently this is not checked when assigning a
-  new value.
 }
 \value{
   Returns a string with the name of the data variable defined as the
@@ -68,7 +66,12 @@ xvardef(object) <- c(x,newdef)
 ## 5 in the current working directory
 xpdb5 <- xpose.data(5)
 
+## get the column name in the Data slot of object xpdb5
+## corresponding to the label dv
 xvardef("dv", xpdb5)
+
+## reset the which column the label dv points to in the Data slot of
+## object xpdb5
 xvardef(xpdb5) <- c("dv", "DVA")
 }
 }

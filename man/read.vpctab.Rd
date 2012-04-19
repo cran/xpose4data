@@ -61,14 +61,10 @@ read.vpctab(vpctab=NULL,
     the \code{object} then this should be \code{TRUE}.}
   \item{\dots}{Other arguments passed to other functions.}
 }
-\details{
-}
 \value{
   Returned is an xpose data object with vpctab information included.
 }
 \author{Andrew Hooker}
-\note{
-}
 \seealso{\code{\link[xpose4specific]{xpose.VPC}}}
 \keyword{methods}
 

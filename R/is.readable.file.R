@@ -27,13 +27,14 @@
 
   ## If we are not dealing with R -> Splus
   if(is.null(version$language)) {
-    if(platform() == "WIN386") {
-      access(filename, 4) == 0
-    } else {
-      filename <- paste("'", filename, "'", sep = "")
-      sapply(paste("test -f", filename, "-a -r", filename), unix,
-             output = F) == 0
-    }
+    cat("This version of Xpose needs to be run with R")
+    ## if(platform() == "WIN386") {
+    ##   access(filename, 4) == 0
+    ## } else {
+    ##   filename <- paste("'", filename, "'", sep = "")
+    ##   sapply(paste("test -f", filename, "-a -r", filename), unix,
+    ##          output = F) == 0
+    ## }
   } else {
     return(file.exists(filename)[1])
   }

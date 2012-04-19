@@ -119,21 +119,45 @@ xpose.data <-function(runno,
   cat("Table files read.\n")
 
 
+  ## read phi file
   ind.data <- NULL
+  nsim.phi <- NULL
   if(nm7){
-      phi.data <- read.phi(phi.file=phi.file,
-                           phi.prefix=mod.prefix,
-                           runno=runno,
-                           phi.suffix=phi.suffix,
-                           ##sim.suffix="sim",
-                           quiet=quiet,
-                           nm7=nm7,
-                           directory=directory,
-                           ...)
-      if(!is.null(phi.data)){
-          xpobj@Data.firstonly <- phi.data
+    phi.data <- read.phi(phi.file=phi.file,
+                         phi.prefix=mod.prefix,
+                         runno=runno,
+                         phi.suffix=phi.suffix,
+                         ##sim.suffix="sim",
+                         quiet=quiet,
+                         nm7=nm7,
+                         directory=directory,
+                         ...)
+    # browser() Elins bug
+    if(!is.null(phi.data)){
+      ## check that phi file has right size
+      if(dim(phi.data)[1]==dim(unique(xpobj@Data[xvardef("id",xpobj)]))[1]){
+        xpobj@Data.firstonly <- phi.data
+      }else{
+        ## get the first unique ID values data from phi file
+        first.phi.data <- phi.data[!duplicated(phi.data[,xvardef("id",xpobj)]),]
+        sim.phi.data <- phi.data[duplicated(phi.data[,xvardef("id",xpobj)]),]
+
+        xpobj@Data.firstonly <- first.phi.data
+
+        nsim.phi.nrows <- dim(sim.phi.data)[1]
+        first.phi.nrows <- dim(first.phi.data)[1]
+        if(regexpr("\\.",as.character(nsim.phi.nrows/first.phi.nrows)) !=-1) {
+          cat("The length of the Phi data and the Phi simulated data do not match!\n")
+          return(xpobj)
+        }
+        nsim.phi <- nsim.phi.nrows/first.phi.nrows
       }
+    }
   }
+  
+
+  
+  
 
 
 
@@ -195,7 +219,21 @@ xpose.data <-function(runno,
       cat("Simulation tables not read!\n")
       return(NULL)
     }
+
+    if(!is.null(nsim.phi)){
+      ## check that there are the same number of simulations in the phi file and the table files
+      if(!(xpobj@Nsim == nsim.phi)){
+        cat("\nThere are not the same number of simulations\n",
+            "in the table files and the phi file.\n",
+            "Something is wrong with the phi file.\n",
+            "It will not be used.\n",sep="")
+        xpobj@Data.firstonly <- NULL
+      } else {
+        xpobj@SData.firstonly <- sim.phi.data
+      }
+    }
   }
+
 
   ## read local options
   if (is.readable.file("xpose.ini")) {

@@ -1,2 +1,2 @@
-import(lattice, grid, Hmisc, gam, methods)
+import(methods)
 exportPattern("^[^\\.]")

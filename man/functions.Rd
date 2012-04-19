@@ -26,6 +26,7 @@
 \alias{check.vars}
 \alias{is.readable.file}
 \alias{test.xpose.data}
+\alias{xpose.bin}
 \title{Data functions for Xpose 4}
 \description{
   These functions perform various tasks in managing Xpose data objects.
@@ -55,7 +56,5 @@ test.xpose.data(object)
 \seealso{
   \code{\link[xpose4data]{xpose.prefs-class}},
   \code{\link{xvardef}}
-}
-\examples{
 }
 \keyword{methods}

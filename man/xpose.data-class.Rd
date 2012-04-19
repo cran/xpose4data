@@ -71,7 +71,5 @@
   \code{\link[xpose4data]{SData}}
   \code{\link{read.nm.tables}}, \code{\link[xpose4data]{xpose.prefs-class}}
 }
-\examples{
-}
 \keyword{classes}
 

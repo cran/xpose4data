@@ -88,13 +88,13 @@ read.nm.tables <-
             tempfile<- paste(filename,".xptmp",sep="")
             write.table(tmp[-c(inds,inds2)],file=tempfile,
                         row.names=FALSE,quote=FALSE)
-            assign(paste("n.",filename,sep=""),read.table(tempfile,skip=2,h=T,sep=sep.char))
+            assign(paste("n.",filename,sep=""),read.table(tempfile,skip=2,header=T,sep=sep.char))
             unlink(tempfile)
           } else {
-            assign(paste("n.",filename,sep=""),read.table(filename,skip=1,h=T,sep=sep.char))
+            assign(paste("n.",filename,sep=""),read.table(filename,skip=1,header=T,sep=sep.char))
           }
         } else {
-          assign(paste("n.",filename,sep=""),read.table(filename,skip=1,h=T,sep=sep.char))
+          assign(paste("n.",filename,sep=""),read.table(filename,skip=1,header=T,sep=sep.char))
         }
         
         ## Remember the files seen

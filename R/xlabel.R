@@ -31,13 +31,13 @@ xlabel <- function(x,object) {
   }
 }
 
-"xlabel<-" <- function(x,value) {
+"xlabel<-" <- function(object,value) {
 
   ## value is a two element vector of which the first element is the
   ## name of the variable and the second the label
-  x@Prefs@Labels[value[1]] <- value[2]
+  object@Prefs@Labels[value[1]] <- value[2]
 
-  return(x)
+  return(object)
 }
   
   

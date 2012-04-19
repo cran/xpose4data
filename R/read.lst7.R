@@ -58,7 +58,7 @@ read.lst7 <- function(filename) {
   if(!is.readable.file(rawfile)) {
     stop(paste("Could not fine the raw results file (",rawfile,") for list file: ",filename,"\n"))
   } else {
-    rawres <- read.table(rawfile,skip=1,h=T)
+    rawres <- read.table(rawfile,skip=1,header=T)
   }
 
   ## Extract OFV
@@ -132,7 +132,8 @@ read.lst7 <- function(filename) {
 
     ## Extract theta estimates
     sethetas       <- seEstLine[grep("THETA",names(rawres))]
-
+    sethetas[sethetas == 1.00000E+10] <- NA
+    
     ## Extract omega estimates
     omindx <- grep("OMEGA",names(rawres))
     seomega  <- list()
@@ -146,7 +147,7 @@ read.lst7 <- function(filename) {
       omrow <- as.numeric(sub("\\.\\w*\\.$",'',tmp1,perl=TRUE))
 
       if(!is.na(seEstLine[om])){
-          if(seEstLine[om] == 1.00000E+10) seEstLine[om] <- 0
+          if(seEstLine[om] == 1.00000E+10) seEstLine[om] <- NA
       }
       seeseOM[omrow] <- seeseOM[omrow]+1
       if(seeseOM[omrow]==1) {
@@ -172,7 +173,7 @@ read.lst7 <- function(filename) {
         sirow <- as.numeric(sub("\\.\\w*\\.$",'',tmp1,perl=TRUE))
 
         if(!is.na(seEstLine[si])){
-            if(seEstLine[si] == 1.00000E+10) seEstLine[si] <- 0
+            if(seEstLine[si] == 1.00000E+10) seEstLine[si] <- NA
         }
         seenseSI[sirow] <- seenseSI[sirow]+1
         if(seenseSI[sirow]==1) {
