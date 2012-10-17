@@ -1,4 +1,4 @@
-df5c7aab5a9ef51d01a021be70da5c8e *DESCRIPTION
+1487f05ee21df41a07d76886931c2d93 *DESCRIPTION
 71738af8404ece81952f5e5266e950cb *NAMESPACE
 311cc5ddf2a544a9a7b5ad2997731d45 *R/Data.R
 870825c1678306fd6a5fc691b8777b3f *R/SData.R
@@ -7,6 +7,7 @@ e6d1436dc1c244e8732a9ffc239bfdbc *R/add.absval.R
 86fd3376bf9f9a2601a99f9838f21fc3 *R/add.exp.R
 4f9f81259a40d50572eec7e0b86b85d1 *R/add.log.R
 1af722ade893208b9c13252bccd220e8 *R/add.tad.R
+b9d6d385244d439cdb5ba8e78eb668a0 *R/bootscm.R
 68ab9f4ea280d666a9f21efd1dfe10db *R/calc.npar.R
 c7b04262865defd8b8aa5bb4f4095129 *R/change.ab.graph.par.R
 6500a4be1b6fa42b3b1a1e9cf4635404 *R/change.bw.graph.par.R
@@ -28,7 +29,7 @@ c8f733a3c73d8d620fecd33a9580cb59 *R/change.cond.graph.par.R
 31e05927ed97d7186796f223438f085e *R/change.xvardef.R
 5560b2b4668f56124a39a4761f801d90 *R/check.vars.R
 10590fbb66c241d585a86ce699d71ecb *R/create.parameter.list.R
-6c7ffea8f632e047aff7a4cb90b964ad *R/createXposeClasses.R
+757cfb3c2373bddcef5688805ce78686 *R/createXposeClasses.R
 38971e276d7d1a451daa82cd1c2978a0 *R/db.names.R
 d21817ad0abb67a5a139f5f0a7555a87 *R/export.graph.par.R
 ad719fdfa0ea7997257915aead93b0e6 *R/export.variable.definitions.R
@@ -61,13 +62,14 @@ be3102574f56e64b4e4a368895ddc9cd *R/xpose.read.R
 2a07b548ada4826f565315b7a533ee19 *R/xsubset.R
 a0d3fc41e30f8824c9cf8c874fdeaf77 *R/xvardef.R
 251eea09a6db4b8cef73de30baec5079 *R/zzz.R
-9e7f8aa0eff1a1a0ca16b00fabdfb8fb *data/simpraz.xpdb.RData
+c1218307f39c09c14f05c728d91494ff *data/simpraz.xpdb.RData
 8af910abc1b2d5072c93e9004d2c1a97 *inst/CITATION
-172ca3d39a0e0b7b2e215481810fff70 *inst/changelog.txt
-7be8dbe5703d9ade36aa752f23d7f09a *inst/readme.txt
+5d327cb470677f812c82c7893fa64f22 *inst/changelog.txt
+65b6b73ca13facddf8f7b87fa932d52e *inst/readme.txt
 4571ee6122d0ad4221fdddd3a113ab44 *inst/xpose.ini
 7fa39a378264a2883c1358e03295b400 *man/Data.Rd
 51e8d2b00f8b0adf8244d31b0d958437 *man/add.functions.Rd
+4fd89ee61b5347ffb483bb3135240ca5 *man/bootscm.import.Rd
 c04f9cb530ec698b54d70fa30ae3aaf5 *man/change.graphical.parameters.Rd
 78f8b2d534d26241221cf1f687f52241 *man/change.misc.parameters.Rd
 4726b63d4d9489dafbe79d7423024170 *man/change.parm.Rd
@@ -96,6 +98,7 @@ d862742ec1b40c52ebf01842a665e0ab *man/xpose.ask.for.filename.Rd
 7b1f3164ad8d98063634dba95b96e434 *man/xpose.data-class.Rd
 c10e523bff78647f6c3ed5119e783956 *man/xpose.data.Rd
 6decab707d9cab373cb38439d3e52057 *man/xpose.prefs-class.Rd
+1c33bcce6a6525e2769d9c8efe2ff96f *man/xpose4data-internal.Rd
 0ecb95683ea083d9fa21e1f981d51622 *man/xpose4data-package.Rd
 fd43da7eb4f219ac57c2cc33836ec5f6 *man/xsubset.Rd
 c767996386af2b3f6da2b79e6916b8f4 *man/xvardef.Rd

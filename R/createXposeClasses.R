@@ -78,7 +78,8 @@
                             Cat.levels    = "numeric",
                             DV.Cat.levels = "numeric",
                             Subset        = "character or NULL",
-                            Gam.prefs     = "list"
+                            Gam.prefs     = "list",
+                            Bootgam.prefs = "list"
                             ),
              prototype(
                        Xvardef = list(
@@ -261,7 +262,19 @@
                          extra=NULL,
                          plot.ids=TRUE,
                          medianNorm=TRUE
-                         )
+                         ),
+                       Bootgam.prefs = list(n = 100,
+                         algo = "fluct.ratio",
+                         conv.value = as.numeric(1.04),
+                         check.interval = as.numeric(20),
+                         start.check = as.numeric(50),
+                         liif = as.numeric(0.2),
+                         ljif.conv = as.numeric(25),
+                         seed = NULL,
+                         start.mod = NULL,
+                         excluded.ids = NULL
+                         )                  
+                       
                        )
              )
 
