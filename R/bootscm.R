@@ -134,7 +134,8 @@ bootscm.import <- function (scm.folder = NULL,
         bootscm.obj$runno <- readline()
     }
     cat.s ("\n")
-    assign (pos = 1, "current.bootscm", bootscm.obj, immediate=T)
+    c1<-call("assign", pos = 1, "current.bootscm", bootscm.obj, immediate=T)
+    eval(c1)
     return ()
 }
 

@@ -33,9 +33,12 @@
   if(is.readable.file(ans)) {
     data@Prefs@Xvardef <- dget(ans)
         if (classic==TRUE) {
-          assign(paste("xpdb", object@Runno, sep = ""), data, immediate=T, envir = .GlobalEnv)
-          assign(pos = 1, ".cur.db", eval(as.name(paste("xpdb", object@Runno, sep = ""))))
+          c1<-call("assign",paste("xpdb", object@Runno, sep = ""), data, immediate=T, envir = .GlobalEnv)
+          eval(c1)
+          c2<-call("assign",pos = 1, ".cur.db", eval(as.name(paste("xpdb", object@Runno, sep = ""))))
+          eval(c2)
           return(cat(""))
+          
         } else {
           return(data)
         }

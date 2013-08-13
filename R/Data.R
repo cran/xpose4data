@@ -37,10 +37,14 @@ Data <- function(object,
   }
   
   if(!is.null(subset)) {
-    on.exit(detach(data))
-    attach(data)
+    #attach(data)
+    #on.exit(detach(data))
+    
                                         # data <- data[eval(parse(text=subset)),]
-    data <- data[eval(parse(text=paste("data$", subset))),] # fix subsets 22/3/06
+    #browser()
+    #data <- data[eval(parse(text=paste("data$", subset))),] # fix subsets 22/3/06
+    data<-with(data,data[eval(parse(text=subset)),])
+    
 
     if(dim(data)[1]==0) return(NULL)
   }

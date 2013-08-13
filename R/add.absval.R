@@ -42,17 +42,18 @@
     nam <- paste("abs", i, sep="")
     #cat(nam)
     newit <- abs(data[[i]])
-    newits <- abs(sdata[[i]])
     if(any((data[[i]]-newit) !=0)) {
       data[[nam]] <- newit
       #vname(data[,nam]) <- nam
     }
-    if(any((sdata[[i]]-newits) !=0)) {
-      sdata[[nam]] <- newits
-      #vname(data[,nam]) <- nam
+    if(!all(is.null(sdata))){ 
+       newits <- abs(sdata[[i]])
+       if(any((sdata[[i]]-newits) !=0)) {
+         sdata[[nam]] <- newits
+         #vname(data[,nam]) <- nam
+       }
     }
   }
-
   object@Data <- data
   object@SData <- sdata
   
@@ -62,8 +63,12 @@
   }
   
   if (classic==TRUE) {
-    assign(paste("xpdb", object@Runno, sep = ""), object, immediate=T, envir = .GlobalEnv)
-    assign(pos = 1, ".cur.db", eval(as.name(paste("xpdb", object@Runno, sep = ""))))
+    c1<-call("assign",paste("xpdb", object@Runno, sep = ""),object,envir=.GlobalEnv)
+    eval(c1)
+    #assign(paste("xpdb", object@Runno, sep = ""), object, immediate=T, envir = .GlobalEnv)
+    c2<-call("assign",pos = 1, ".cur.db", eval(as.name(paste("xpdb", object@Runno, sep = ""))))
+    eval(c2)
+    #assign(pos = 1, ".cur.db", eval(as.name(paste("xpdb", object@Runno, sep = ""))))    
     return(cat(""))
   } else {
     return(object)

@@ -118,7 +118,7 @@
                          col    = 4   ,
                          fill   = "lightblue",
                          grid   = FALSE ,
-                         aspect = 1   ,
+                         aspect = "fill"   ,
 
                          ## By arguments
                          condvar   = NULL,
